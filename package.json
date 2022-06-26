@@ -1,8 +1,8 @@
 {
     "type": "module",
-    "name": "paerfect-algorithm-book-part-1",
+    "name": "paerfect-algorithm-book",
     "version": "1.0.0",
-    "description": "Learning the book Perfect Algorithm (Part 1)",
+    "description": "Learning the book Perfect Algorithm",
     "main": "index.js",
     "author": "Rkwadriga",
     "license": "ISC",
