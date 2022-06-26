@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { karatsubaMultiplication } from "../src/1.3_Karatsuba_Multiplication.js";
+import { karatsubaMultiplication } from "../../src/Part-1/1.3_Karatsuba_Multiplication.js";
 
 describe('Test Part 1', () => {
     before(() => {});
