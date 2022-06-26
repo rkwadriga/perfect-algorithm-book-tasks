@@ -14,7 +14,7 @@ function getNumberHalves(num) {
 
 export const karatsubaMultiplication = (x, y) => {
     // 1. Take into account the case of an odd number of digits
-    let [xLength, yLength] = [String(x).length, String(y).length];
+    const [xLength, yLength] = [String(x).length, String(y).length];
     let degree = Math.max(xLength, yLength), coefficient = 1;
     if (degree > 1 && degree % 2 !== 0) {
         degree++;
@@ -29,14 +29,11 @@ export const karatsubaMultiplication = (x, y) => {
         coefficient /= powDiff;
     }
 
-    [xLength, yLength] = [String(x).length, String(y).length];
-    if (xLength > 1 && xLength % 2 !== 0) {
+    const newLength = String(x).length;
+    if (newLength > 1 && newLength % 2 !== 0) {
         x *= 10;
-        coefficient /= 10;
-    }
-    if (yLength > 1 && yLength % 2 !== 0) {
         y *= 10;
-        coefficient /= 10;
+        coefficient /= 100;
     }
 
     // 2. Get number halves
