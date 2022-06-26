@@ -1,0 +1,19 @@
+{
+    "type": "module",
+    "name": "paerfect-algorithm-book-part-1",
+    "version": "1.0.0",
+    "description": "Learning the book Perfect Algorithm (Part 1)",
+    "main": "index.js",
+    "author": "Rkwadriga",
+    "license": "ISC",
+    "dependencies": {
+        "cross-env": "^7.0.3"
+    },
+    "devDependencies": {
+        "chai": "^4.3.6",
+        "mocha": "^10.0.0"
+    },
+    "scripts": {
+        "test": "cross-env NODE_ENV=test mocha --no-warnings --ignore=node_modules/** **/*.test.js"
+    }
+}
