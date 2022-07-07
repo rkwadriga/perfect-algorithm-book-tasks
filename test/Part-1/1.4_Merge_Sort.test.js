@@ -1,7 +1,9 @@
-import { assert } from "chai";
-import { mergeSort } from "../../src/Part-1/1.4_Merge_Sort.js";
+import { expect, assert } from "chai";
+import { mergeSort, subMaxNumber } from "../../src/Part-1/1.4_Merge_Sort.js";
+import { generate2powerArray } from "../fixtures/numbers_fixtures.js";
+import { getSubMaxNum } from "../helpers/number-helpers.js";
 
-describe('Chapter 1.3. Karatsuba Multiplication', () => {
+describe('Chapter 1.4. Merge Sort', () => {
     const testValues = [
         {source: [], dir: [], rev: []},
         {source: [1], dir: [1], rev: [1]},
@@ -67,5 +69,19 @@ describe('Chapter 1.3. Karatsuba Multiplication', () => {
                 assert.deepEqual(resArr, testCase.rev);
             });
         });
+    });
+
+    describe('Test "subMax" function', () => {
+        for (let i = 1; i <= 20; i++) {
+            const arr = generate2powerArray(32);
+            const maxComparings = arr.length + Math.log2(arr.length) - 2;
+            const [res, comparings] = subMaxNumber(arr);
+            const itText = `subMaxNumber(${arr.join(', ')}) = ${res}; Max comparings: ${maxComparings}, Actual comparings: ${comparings}`;
+
+            it(itText, () => {
+                expect(res).to.equals(getSubMaxNum(arr));
+                expect(comparings).to.lessThanOrEqual(maxComparings);
+            });
+        }
     });
 });
