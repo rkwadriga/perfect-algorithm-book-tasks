@@ -10,22 +10,17 @@ export const mergeSort = (arr, compareFn) => {
     const rightArr = mergeSort(arr.slice(halfSize), compareFn);
 
     // Merge the left and the right parts
-    const resArr = [], maxLeftI = leftArr.length, maxRightI = rightArr.length;
-    let leftI = 0, rightI = 0;
+    const resArr = [];
+    let leftIndex = 0, rightIndex = 0;
     while (resArr.length < arr.length) {
-        const el1 = leftArr[leftI], el2 = rightArr[rightI];
-        if (leftI === maxLeftI) {
-            resArr.push(el2);
-            rightI++;
-        } else if (rightI === maxRightI) {
-            resArr.push(el1);
-            leftI++;
-        } else if (compareFn(el1, el2) > 0) {
-            resArr.push(el2);
-            rightI++;
+        if (leftIndex === leftArr.length) {
+            resArr.push(rightArr[rightIndex++]);
+        } else if (rightIndex === rightArr.length) {
+            resArr.push(leftArr[leftIndex++]);
+        } else if (compareFn(leftArr[leftIndex], rightArr[rightIndex]) > 0) {
+            resArr.push(rightArr[rightIndex++]);
         } else {
-            resArr.push(el1);
-            leftI++;
+            resArr.push(leftArr[leftIndex++]);
         }
     }
 
