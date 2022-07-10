@@ -7,7 +7,7 @@ export const mergeSort = (arr, compareFn) => {
     // Separate en source array on 2 parts and recursively sort them
     const halfSize = Math.round(arr.length / 2);
     const leftArr = mergeSort(arr.slice(0, halfSize), compareFn);
-    const rightArr = mergeSort(arr.slice(halfSize, arr.length), compareFn);
+    const rightArr = mergeSort(arr.slice(halfSize), compareFn);
 
     // Merge the left and the right parts
     const resArr = [], maxLeftI = leftArr.length, maxRightI = rightArr.length;
